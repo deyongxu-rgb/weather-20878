@@ -133,6 +133,11 @@ function createDailyCard(day) {
   return card;
 }
 
+function parseApiDateLocal(dateString) {
+  const [year, month, day] = dateString.split('-').map(Number);
+  return new Date(year, month - 1, day);
+}
+
 function getHourlyDisplayData(data) {
   const now = new Date();
   const currentIndex = data.time.findIndex(time => new Date(time) >= now);
@@ -178,7 +183,7 @@ function updateWeatherDisplay(data, label) {
   const daily = data.daily.time.map((day, index) => {
     const code = data.daily.weathercode[index];
     const [icon] = weatherLabel(code);
-    const date = new Date(day);
+    const date = parseApiDateLocal(day);
     const weekday = date.toLocaleDateString('en-US', { weekday: 'short' });
     return {
       weekday,
