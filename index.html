@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="panel panel--hero">
+      <div class="hero-top">
+        <div>
+          <p class="location-label">Weather</p>
+          <h1 id="location">No Potomac, MD 20878</h1>
+          <p id="time" class="subtitle">Friday 4:00 PM</p>
+        </div>
+        <div class="switcher">
+          <button id="tempTab" class="tab active">Temperature</button>
+          <button id="precipTab" class="tab">Precipitation</button>
+          <button id="windTab" class="tab">Wind</button>
+        </div>
+      </div>
+
+      <div class="current-card">
+        <div class="current-summary">
+          <div class="weather-icon" id="conditionIcon">☀️</div>
+          <div>
+            <div class="current-temp"><span id="tempValue">78</span>°</div>
+            <div id="conditionText">Partly sunny</div>
+          </div>
+        </div>
+
+        <div class="current-stats">
+          <div><span id="precipValue">6%</span><small>Precipitation</small></div>
+          <div><span id="humidityValue">35%</span><small>Humidity</small></div>
+          <div><span id="windValue">9 mph</span><small>Wind</small></div>
+        </div>
+      </div>
+
+      <div class="forecast-chart">
+        <div class="chart-header">
+          <div>
+            <p class="chart-title" id="chartTitle">Temperature</p>
+            <span class="chart-subtitle">Next 12 hours</span>
+          </div>
+          <div class="search-block">
+            <input id="searchInput" placeholder="Search city or zip" aria-label="Search weather location" />
+            <button id="searchBtn">Search</button>
+          </div>
+        </div>
+        <svg id="hourlyChart" viewBox="0 0 600 180" preserveAspectRatio="none" aria-label="Hourly weather chart"></svg>
+        <div class="hour-labels" id="hourLabels"></div>
+      </div>
+    </section>
+
+    <section class="panel panel--daily">
+      <div class="forecast-row" id="dailyForecast"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
